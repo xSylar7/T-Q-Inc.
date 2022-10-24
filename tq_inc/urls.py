@@ -16,8 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from booking.views import get_home
+from users.views import user_login, user_signup
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', get_home, name='home')
+    path('', get_home, name='home'),
+    path('signup/', user_signup, name='signup'),
+    path('login/', user_login, name='login'),
 ]
