@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path
 from booking.views import get_home
 from users.views import user_login, user_signup
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,3 +26,7 @@ urlpatterns = [
     path('signup/', user_signup, name='signup'),
     path('login/', user_login, name='login'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL,
+                          document_root=settings.STATIC_ROOT)
