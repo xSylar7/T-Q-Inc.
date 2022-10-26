@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
 
@@ -10,4 +10,9 @@ def get_home(request):
 
 @login_required
 def user_home(request):
-    return render(request, 'user.html')
+    return render(request, 'user_home.html')
+
+
+@login_required
+def user_profile(request):
+    return render(request, 'user_profile.html')
