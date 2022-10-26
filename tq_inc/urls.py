@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from booking.views import get_home
+from booking.views import get_home, user_home
 from users.views import user_login, user_signup
 from django.conf import settings
 from django.conf.urls.static import static
@@ -25,6 +25,7 @@ urlpatterns = [
     path('', get_home, name='home'),
     path('signup/', user_signup, name='signup'),
     path('login/', user_login, name='login'),
+    path('user/', user_home, name='user-home'),
 ]
 
 if settings.DEBUG:
