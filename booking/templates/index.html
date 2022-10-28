@@ -1,10 +1,69 @@
 <!-- Home HTML with no user login -->
 {% extends 'base.html' %}
 {% load static %}
+
 {% block title %}
 Home
 {% endblock title %}
 
-{% block content %}
+{% block sidebar %}
+<div class="ms-3">
+    <h6 class="mb-0">Welcome Guest</h6>
+    <span>SignIn / SignUp</span>
+</div>
+{% endblock sidebar %}
 
+{% block navbar %}
+<a href="index.html" class="navbar-brand d-flex d-lg me-4">
+    <h3 class="text-primary mb-0">Book An Event</h3>
+</a>
+<a href="#" class="sidebar-toggler flex-shrink-0">
+    <i class="fa fa-bars"></i>
+</a>
+<button type="button" class="btn btn-sm btn-outline-primary m-2 ms-auto" href="{% url 'login' %}">Sign In</button>
+<!-- <button type="button" class="btn btn-sm btn-outline-primary m-2 ms-auto" href="{% url 'signup' %}">Sign Up</button> -->
+{% endblock navbar %}
+
+{% block content %}
+<!-- Events (Hoverable) Table -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-secondary rounded h-100 p-4">
+                <h6 class="mb-4">Upcoming Events</h6>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>jhon@email.com</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>mark@email.com</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>jacob@email.com</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Events Table End -->
 {% endblock content %}
