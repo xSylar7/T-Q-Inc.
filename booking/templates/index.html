@@ -35,6 +35,39 @@ Home
                     <thead>
                         <tr>
                             <th scope="col">#</th>
+                            <th scope="col">Event Name</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Organizer</th>
+                            <th scope="col">Seats</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Seats Booked</th>
+                            <th scope="col">Event Date</th>
+                            <th scope="col">Date of Creation</th>
+                        </tr>
+                    </thead>
+                    {%if events%} {% for event in events %}
+                    <tbody>
+                        <tr>
+                            <th scope="row">{{event.id}}</th>
+                            <td>{{event.name}}</td>
+                            <td>img</td>
+                            <td>{{event.organizer}}</td>
+                            <td>{{event.seats}}</td>
+                            <td>{{event.price}}</td>
+                            <td>{{event.seats_booked}}</td>
+                            <td>{{event.date_event}}</td>
+                            <td>{{event.created}}</td>
+                        </tr>
+                    </tbody>
+                    {%endfor%} {%else%}
+                    <td>No events at this time</td>
+                    {% endif %}
+                </table>
+                <!-- Static Old Table -->
+                <!-- <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
                             <th scope="col">First Name</th>
                             <th scope="col">Last Name</th>
                             <th scope="col">Email</th>
@@ -60,7 +93,7 @@ Home
                             <td>jacob@email.com</td>
                         </tr>
                     </tbody>
-                </table>
+                </table> -->
             </div>
         </div>
     </div>
