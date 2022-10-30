@@ -9,18 +9,18 @@ Home
 {% block sidebar %}
 <div class="ms-3">
     <h6 class="mb-0">Welcome Guest</h6>
-    <span>SignIn / SignUp</span>
+    <a href="{% url 'login'%}" style="font-size: 14px"><span>Sign In / Register</span></a>
 </div>
 {% endblock sidebar %}
 
 {% block navbar %}
-<a href="index.html" class="navbar-brand d-flex d-lg me-4">
+<a href="{% url 'home' %}" class="navbar-brand d-flex d-lg me-4">
     <h3 class="text-primary mb-0">Book An Event</h3>
 </a>
 <a href="#" class="sidebar-toggler flex-shrink-0">
     <i class="fa fa-bars"></i>
 </a>
-<button type="button" class="btn btn-sm btn-outline-primary m-2 ms-auto" href="{% url 'login' %}">Sign In</button>
+<a type="button" class="btn btn-sm btn-outline-primary m-2 ms-auto" href="{% url 'login' %}">Sign In</a>
 <!-- <button type="button" class="btn btn-sm btn-outline-primary m-2 ms-auto" href="{% url 'signup' %}">Sign Up</button> -->
 {% endblock navbar %}
 
@@ -38,7 +38,7 @@ Home
                             <th scope="col">Event Name</th>
                             <th scope="col">Image</th>
                             <th scope="col">Organizer</th>
-                            <th scope="col">Seats</th>
+                            <th scope="col">Totals Seats</th>
                             <th scope="col">Price</th>
                             <th scope="col">Seats Booked</th>
                             <th scope="col">Event Date</th>
@@ -47,9 +47,9 @@ Home
                     </thead>
                     {%if events%} {% for event in events %}
                     <tbody>
-                        <tr>
+                        <tr >
                             <th scope="row">{{event.id}}</th>
-                            <td>{{event.name}}</td>
+                            <td href="{% url 'event-detail' event_id=event.id%}">{{event.name}}</td>
                             <td>img</td>
                             <td>{{event.organizer}}</td>
                             <td>{{event.seats}}</td>
@@ -63,37 +63,6 @@ Home
                     <td>No events at this time</td>
                     {% endif %}
                 </table>
-                <!-- Static Old Table -->
-                <!-- <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First Name</th>
-                            <th scope="col">Last Name</th>
-                            <th scope="col">Email</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>John</td>
-                            <td>Doe</td>
-                            <td>jhon@email.com</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>mark@email.com</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>jacob@email.com</td>
-                        </tr>
-                    </tbody>
-                </table> -->
             </div>
         </div>
     </div>

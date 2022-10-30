@@ -9,7 +9,7 @@ Customer Home
 {% block sidebar %}
 <div class="ms-3">
     <h6 class="mb-0">Welcome, {{user.username}}</h6>
-    <span>Profile</span>
+    <span style="font-size: 14px">Profile</span>
 </div>
 {% endblock sidebar %}
 
@@ -47,8 +47,9 @@ Customer Home
                             <th scope="col">Date of Creation</th>
                         </tr>
                     </thead>
-                    {%if events%} {% for event in events %}
-                    <tbody>
+                    <!-- {%if events%}  -->
+                    {% for event in event %}
+                    <tbody href="{% url 'event-detail' event_id=event.id%}">
                         <tr>
                             <th scope="row">{{event.id}}</th>
                             <td>{{event.name}}</td>
@@ -61,40 +62,11 @@ Customer Home
                             <td>{{event.created}}</td>
                         </tr>
                     </tbody>
-                    {%endfor%} {%else%}
+                    {%endfor%} 
+                    <!-- {%else%}
                     <td>No events at this time</td>
-                    {% endif %}
+                    {% endif %} -->
                 </table>
-                <!-- <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First Name</th>
-                            <th scope="col">Last Name</th>
-                            <th scope="col">Email</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>John</td>
-                            <td>Doe</td>
-                            <td>jhon@email.com</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>mark@email.com</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>jacob@email.com</td>
-                        </tr>
-                    </tbody>
-                </table> -->
             </div>
         </div>
     </div>

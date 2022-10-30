@@ -22,7 +22,7 @@ def user_signup(request):
 
             login(request, user)
 
-            return redirect("user-home")
+            return redirect('user-home')
     context = {
         'form': form,
     }
@@ -71,9 +71,9 @@ def profile(request):
             user_form.save()
             profile_form.save()
             messages.success(request, 'Your profile is updated successfully')
-            return redirect(to='users-profile')
+            return redirect(to='user-profile')
     else:
         user_form = UpdateUserForm(instance=request.user)
         profile_form = UpdateProfileForm(instance=request.user.profile)
 
-    return render(request, 'users/profile.html', {'user_form': user_form, 'profile_form': profile_form})
+    return render(request, 'user_profile.html', {'user_form': user_form, 'profile_form': profile_form})

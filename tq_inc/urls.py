@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from booking.views import get_home, user_home, user_profile, create_event
+from booking.views import get_home, user_home, user_profile, create_event, get_events, get_event
 from users.views import user_login, user_signup
 from django.conf import settings
 from django.conf.urls.static import static
@@ -25,9 +25,11 @@ urlpatterns = [
     path('', get_home, name='home'),
     path('signup/', user_signup, name='signup'),
     path('login/', user_login, name='login'),
-    path('user/', user_home, name='user-home'),
-    path('user/profile', user_profile, name='user-profile'),
-    path('event/creation', create_event, name='event-create')
+    path('user/<int:user_id>/', user_home, name='user-home'),
+    path('user/profile/<int:user_id>/', user_profile, name='user-profile'),
+    path('events/creation/', create_event, name='event-create'),
+    path('events/', get_events, name='events-list'),
+    path("events/<int:event_id>/", get_event, name="event-detail"),
 ]
 
 if settings.DEBUG:
