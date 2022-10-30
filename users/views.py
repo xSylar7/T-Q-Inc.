@@ -22,7 +22,7 @@ def user_signup(request):
 
             login(request, user)
 
-            return redirect('user-home')
+            return redirect('home')
     context = {
         'form': form,
     }
@@ -41,7 +41,7 @@ def user_login(request):
             auth_user = authenticate(username=username, password=password)
             if auth_user is not None:
                 login(request, auth_user)
-                return redirect('user-home', user_id=auth_user.id)
+                return redirect('home')
     context = {
         'form': form,
     }
