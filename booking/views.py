@@ -44,8 +44,9 @@ def get_events(req):
 
             }
         )
+    print(_events)
     context = {'events': _events}
-    return render(req, 'event_list.html', context)
+    return render(req, 'user_home.html', context)
 
 
 def get_event(req, event_id):

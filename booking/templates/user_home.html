@@ -21,7 +21,9 @@ Customer Home
     <a href="#" class="sidebar-toggler flex-shrink-0">
         <i class="fa fa-bars"></i>
     </a>
+    {% comment %}
     <!-- <button type="button" class="btn btn-sm btn-outline-primary m-2 ms-auto" href="{% url 'user-profile' %}">Update Profile</button> -->
+    {% endcomment %}
     <button type="button" class="btn btn-sm btn-outline-primary m-2 ms-auto" href="{% url 'home' %}">Logout</button>
     {%endif%}
 {% endblock navbar %}
@@ -47,8 +49,8 @@ Customer Home
                             <th scope="col">Date of Creation</th>
                         </tr>
                     </thead>
-                    <!-- {%if events%}  -->
-                    {% for event in event %}
+                    {%if events%} 
+                    {% for event in events %}
                     <tbody href="{% url 'event-detail' event_id=event.id%}">
                         <tr>
                             <th scope="row">{{event.id}}</th>
@@ -63,9 +65,9 @@ Customer Home
                         </tr>
                     </tbody>
                     {%endfor%} 
-                    <!-- {%else%}
+                    {%else%}
                     <td>No events at this time</td>
-                    {% endif %} -->
+                    {% endif %}
                 </table>
             </div>
         </div>

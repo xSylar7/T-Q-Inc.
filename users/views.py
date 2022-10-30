@@ -41,7 +41,7 @@ def user_login(request):
             auth_user = authenticate(username=username, password=password)
             if auth_user is not None:
                 login(request, auth_user)
-                return redirect('user-home')
+                return redirect('user-home', user_id=auth_user.id)
     context = {
         'form': form,
     }
@@ -71,7 +71,7 @@ def profile(request):
             user_form.save()
             profile_form.save()
             messages.success(request, 'Your profile is updated successfully')
-            return redirect(to='user-profile')
+            return redirect('user-profile')
     else:
         user_form = UpdateUserForm(instance=request.user)
         profile_form = UpdateProfileForm(instance=request.user.profile)
